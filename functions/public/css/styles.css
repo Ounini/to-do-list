@@ -1,0 +1,100 @@
+body {
+	background: linear-gradient(white, lightskyblue);
+	background-repeat: no-repeat;
+}
+
+.box {
+	background-color: purple;
+	width: 500px;
+	margin-top: 50px;
+	margin-left: 100px;
+	border-radius: 10px;
+	box-shadow: 10px 10px 10px 0 gray;
+}
+
+h1 {
+	padding: 20px;
+	text-align: center;
+	color: lightskyblue;
+}
+
+form {
+	margin: 0;
+	text-align: left;
+}
+#add {
+	text-align: center;
+}
+#inputs {
+	float: left;
+	margin-top: 25px;
+	margin-left: 40px;
+}
+#inputs:checked+p {
+	text-decoration: line-through;
+	text-decoration-color: lightskyblue;
+}
+
+.item:last-child {
+	border-bottom: 0;
+}
+p {
+	font-family: cursive;
+	padding: 20px;
+	text-align: center;	
+	margin-left: 0px;
+	width: 400px;
+}
+#form {
+	width: 500px;
+	margin-left: 100px;
+	border: white;
+	background-color: white;
+	border-radius: 10px;
+	box-shadow: 10px 10px 10px 0 gray;
+
+}
+input[type=text] {
+	font-family: cursive;
+	border-color: white;
+	box-shadow: none;
+}
+button {
+	background-color: lightskyblue;
+	padding: 12px;
+	border-color: white;
+	border-radius: 30px;
+	color: white;
+}
+footer {
+	position: static;
+	margin-top: 50%;
+	margin-bottom: 150px;
+	margin-left: 250px;
+}
+
+@media (max-width: 575px) {
+	.box {
+		width: 280px;
+		margin-left: 0;
+	}
+	h1 {
+		font-size: 26px;
+	}
+	#form {
+		width: 280px;
+		margin-left: 0;
+	}
+	#inputs {
+		margin-left: 20px;
+	}
+	p {
+		width: 100%;
+		font-size: 14px;
+
+	}
+	footer {
+		margin-left: 15%;
+		margin-top: 40%;
+	}
+}
