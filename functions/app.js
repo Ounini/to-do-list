@@ -148,12 +148,12 @@ app.post("/work", function(req, res) {
 	res.redirect("/work");
 });
 
-// let port = process.env.PORT
-// if (port == null || port == "") {
-// 	port = 3000
-// }
-//  app.listen(port, function() {
-//  	console.log("Server started on port 3000")
-//  })
+ let port = process.env.PORT
+if (port == null || port == "") {
+ 	port = 3000
+ }
+ app.listen(port, function() {
+  	console.log("Server started on port 3000")
+  })
 
-exports.app = functions.https.onRequest(app);
+// exports.app = functions.https.onRequest(app);
