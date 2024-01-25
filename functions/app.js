@@ -54,8 +54,7 @@ app.get("/", function(req, res) {
 	res.set("Cache-Control", "public, max-age=300, s-maxage=600");
  	// const day = date.getDate()
 	
-	Item.find({});
-	.then(result => {		
+	Item.find({}).then(result => {		
 		if (result.length === 0) {
 			Item.insertMany(defaultItems);
 		res.redirect("/");
@@ -78,8 +77,7 @@ app.post("/", function (req, res) {
  		item.save();
  		res.redirect("/");	
  	} else {
- 		List.findOne({name: listName});
- 		.then(result => {
+ 		List.findOne({name: listName}).then(result => {
  			result.items.push(item);
  			result.save();
  			res.redirect("/" + listName);
@@ -103,14 +101,12 @@ app.post("/delete", function(req, res) {
 	const listName = req.body.listName;
 
 	if (listName === "Today") {
-		Item.findByIdAndDelete(checkedItemId);
-		.then(result => {
+		Item.findByIdAndDelete(checkedItemId).then(result => {
 			console.log(result);
 		res.redirect("/");
 		});
 	} else {
-		List.findOneAndUpdate({name: listName}, {$pull: {items: {_id: checkedItemId}}});
-		.then(result => {
+		List.findOneAndUpdate({name: listName}, {$pull: {items: {_id: checkedItemId}}}).then(result => {
 			res.redirect("/" + listName);
 		});
 	}
@@ -124,8 +120,7 @@ app.post("/delete", function(req, res) {
 app.get("/:customListName", function(req, res) {
 	const customListName = _.capitalize(req.params.customListName);
 
-	List.findOne({name: customListName});
-	.then(result => {
+	List.findOne({name: customListName}).then(result => {
 		if (result) {
 			// show an existing list
 			res.render("list", {listTitle: result.name, newListItems: result.items});
